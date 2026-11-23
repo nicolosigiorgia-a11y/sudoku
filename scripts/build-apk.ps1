@@ -5,7 +5,9 @@ param(
   [string]$ApiBaseUrl = ''
 )
 
-$ErrorActionPreference = 'Stop'
+# I comandi nativi (Flutter/Gradle) scrivono avvisi su stderr: non devono
+# interrompere la build. Gli errori reali sono gestiti con $LASTEXITCODE.
+$ErrorActionPreference = 'Continue'
 
 $flutterBat = ''
 if ($env:FLUTTER_HOME) {

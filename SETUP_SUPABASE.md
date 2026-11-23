@@ -143,14 +143,13 @@ $env:FLUTTER_HOME='C:\Users\Archimede\flutter\3.41.7'
 4. Vai su **Profilo** e prova il login con password o magic link.
 5. Completa un livello e verifica che i progressi si sincronizzino.
 
-## 9. Pubblicare su GitHub (quando avrai la repo dell'amico)
+## 9. Pubblicare su GitHub
+
+Repo: https://github.com/nicolosigiorgia-a11y/sudoku.git
 
 ```powershell
 cd C:\Users\Archimede\Desktop\sudoku_cat
-git init -b main
-git add .
-git commit -m "AI Sudoku Vision & Tutor - Cat Edition"
-git remote add origin https://github.com/<UTENTE>/<REPO-GATTO>.git
+git remote add origin https://github.com/nicolosigiorgia-a11y/sudoku.git
 git push -u origin main
 ```
 
@@ -158,15 +157,14 @@ Poi crea la Release dal browser (**Releases → Draft a new release**, tag `v1.0
 
 Prima di fare `git add .`, controlla che non compaiano: `.env`, `local.properties`, `supabase/.temp/`, `.apk`, `RELAZIONE.html`. Sono tutti già nel `.gitignore`.
 
-## 10. Logo (da fare quando mi mandi l'immagine)
+## 10. Logo (completato)
 
-Al momento la cartella contiene ancora l'icona vecchia (`Gemini_Generated_Image_un0ryrun0ryrun0r.jpg`). Quando mi dai il nuovo logo lo sostituisco in:
+Il logo `logo.jpg` (1024×1024) è stato usato per generare:
 
-- `app_src/assets/app_icon.jpg`
-- `app/assets/app_icon.jpg`
-- `app/android/app/src/main/res/mipmap-*/ic_launcher.png`
+- `app_src/assets/app_icon.jpg` e `app/assets/app_icon.jpg`
+- `app/android/app/src/main/res/mipmap-*/ic_launcher.png` (48/72/96/144/192 px)
 
-e poi rigenero l'APK. Anche gli screenshot andrebbero rifatti con la mascotte gatto: per ora `screenshots/` contiene quelli della versione pinguino, usati come segnaposto nella relazione.
+Il file sorgente `logo.jpg` resta nella cartella. Anche gli screenshot andrebbero rifatti con la mascotte gatto: per ora `screenshots/` contiene quelli della versione pinguino, usati come segnaposto nella relazione.
 
 ---
 

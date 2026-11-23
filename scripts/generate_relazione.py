@@ -124,7 +124,7 @@ TEMPLATE = r"""<!doctype html>
     <li><code>npm run test:server</code>: solver, conflitti, conteggio soluzioni e conversioni del modulo TypeScript.</li>
     <li><code>flutter build apk --release</code>: <code>AI-Sudoku-Cat-Tutor.apk</code> (~75,9 MB, Android 8+, minSdk 24), con Tesseract e librerie native incluse.</li>
   </ul>
-  <div class="foot"><span>Codice: github.com/TUO-UTENTE/REPO-GATTO<br>APK: github.com/TUO-UTENTE/REPO-GATTO/releases/latest</span><span>Pagina 2/2</span></div>
+  <div class="foot"><span>Codice: github.com/nicolosigiorgia-a11y/sudoku<br>APK: github.com/nicolosigiorgia-a11y/sudoku/releases/latest</span><span>Pagina 2/2</span></div>
 </section>
 
 </body>

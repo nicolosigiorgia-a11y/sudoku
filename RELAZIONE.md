@@ -1,6 +1,6 @@
 # AI Sudoku Vision & Tutor — Cat Edition — Relazione tecnica
 
-**Versione stampabile (2 pagine A4):** [RELAZIONE.pdf](RELAZIONE.pdf) · **Repo:** [sudoku_ai](https://github.com/TUO-UTENTE/REPO-GATTO) · **APK:** [GitHub Release v1.0](https://github.com/TUO-UTENTE/REPO-GATTO/releases/latest)
+**Versione stampabile (2 pagine A4):** [RELAZIONE.pdf](RELAZIONE.pdf) · **Repo:** [sudoku_ai](https://github.com/nicolosigiorgia-a11y/sudoku) · **APK:** [GitHub Release v1.0](https://github.com/nicolosigiorgia-a11y/sudoku/releases/latest)
 
 Consegna: Google Classroom · SDK: Flutter + Android SDK · API: Google Gemini · Backend: Supabase Edge Function
 
@@ -59,7 +59,7 @@ Screenshot reali da dispositivo Android (720×1444 / 720×1570 px).
 
 - [x] Codice sorgente completo (Flutter + Supabase Edge Function)
 - [x] `.env.example` senza chiave reale
-- [x] APK release nella [Release v1.0](https://github.com/TUO-UTENTE/REPO-GATTO/releases/latest)
+- [x] APK release nella [Release v1.0](https://github.com/nicolosigiorgia-a11y/sudoku/releases/latest)
 - [x] Relazione tecnica in 2 pagine: [RELAZIONE.pdf](RELAZIONE.pdf)
 - [x] Screenshot reali in `screenshots/`
 

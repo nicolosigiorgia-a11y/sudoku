@@ -182,4 +182,4 @@ flutter test
 - `GEMINI_API_KEY` va solo in `.env`; `.gitignore` esclude il file.
 - Modello predefinito: `gemini-3.6-flash`, con fallback automatico a `gemini-3.5-flash-lite` e `gemini-3.8-flash` se uno è sovraccarico o disattivato (configurabile con `GEMINI_MODEL`).
 - La relazione tecnica sintetica in 2 pagine è `RELAZIONE.pdf` (versione Markdown: `RELAZIONE.md`); si rigenera con `python scripts/generate_relazione.py`. Gli screenshot reali sono in `screenshots/` (`ai_solution.jpeg`, `livelli.jpeg`, `impara.jpeg`, `profilo.jpeg`).
-- **Da sostituire:** icona e screenshot sono ancora quelli della versione pinguino, usati come segnaposto finché non arriva il nuovo logo gatto (vedi [SETUP_SUPABASE.md](SETUP_SUPABASE.md), punto 10).
+- **Icona**: generata da `logo.jpg` (nelle mipmap Android e in `app_src/assets/app_icon.jpg`). **Da sostituire:** gli screenshot sono ancora quelli della versione pinguino, usati come segnaposto.
