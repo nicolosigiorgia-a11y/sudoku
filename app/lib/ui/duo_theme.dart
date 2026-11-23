@@ -1,24 +1,27 @@
 import 'package:flutter/material.dart';
 
+/// Palette dedicata della versione Gatto: rosa caldo, viola e pesca.
+/// I nomi storici (green/blue/yellow) sono mantenuti per compatibilità
+/// con i widget esistenti, ma i colori sono tutti rivisti in chiave cat.
 class DuoColors {
-  static const green = Color(0xFF58CC02);
-  static const greenDark = Color(0xFF46A302);
-  static const greenLight = Color(0xFFD7FFB8);
-  static const blue = Color(0xFF1CB0F6);
-  static const blueDark = Color(0xFF1899D6);
-  static const blueLight = Color(0xFFDDF4FF);
-  static const yellow = Color(0xFFFFC800);
-  static const yellowDark = Color(0xFFD9A800);
-  static const yellowLight = Color(0xFFFFF3C4);
-  static const red = Color(0xFFFF4B4B);
-  static const redDark = Color(0xFFD93737);
-  static const purple = Color(0xFFCE82FF);
-  static const purpleLight = Color(0xFFF3E4FF);
-  static const text = Color(0xFF3C3C3C);
-  static const muted = Color(0xFF777777);
-  static const border = Color(0xFFE5E5E5);
+  static const green = Color(0xFFFF6FA8);
+  static const greenDark = Color(0xFFD9487F);
+  static const greenLight = Color(0xFFFFE1EC);
+  static const blue = Color(0xFF9A6BFF);
+  static const blueDark = Color(0xFF7247D6);
+  static const blueLight = Color(0xFFEFE6FF);
+  static const yellow = Color(0xFFFFB367);
+  static const yellowDark = Color(0xFFD8863B);
+  static const yellowLight = Color(0xFFFFF0E0);
+  static const red = Color(0xFFFF7185);
+  static const redDark = Color(0xFFD94C61);
+  static const purple = Color(0xFFF48FB1);
+  static const purpleLight = Color(0xFFFDE4EE);
+  static const text = Color(0xFF4A3340);
+  static const muted = Color(0xFF9A7C8A);
+  static const border = Color(0xFFF3DCE6);
   static const surface = Color(0xFFFFFFFF);
-  static const background = Color(0xFFF7F9FC);
+  static const background = Color(0xFFFFF6FA);
 }
 
 ThemeData duoTheme() {
@@ -37,21 +40,22 @@ ThemeData duoTheme() {
       headlineSmall: TextStyle(fontWeight: FontWeight.w800, color: DuoColors.text),
       titleLarge: TextStyle(fontWeight: FontWeight.w800, color: DuoColors.text),
       titleMedium: TextStyle(fontWeight: FontWeight.w800, color: DuoColors.text),
-      bodyMedium: TextStyle(color: DuoColors.text, height: 1.4),
+      bodyMedium: TextStyle(color: DuoColors.text, height: 1.45),
     ),
   );
 
   return base.copyWith(
     appBarTheme: const AppBarTheme(
       centerTitle: false,
-      backgroundColor: DuoColors.surface,
+      backgroundColor: Color(0xFFFFF0F6),
       foregroundColor: DuoColors.text,
       surfaceTintColor: Colors.transparent,
       elevation: 0,
       scrolledUnderElevation: 0,
       titleTextStyle: TextStyle(
-        fontSize: 20,
+        fontSize: 21,
         fontWeight: FontWeight.w800,
+        letterSpacing: 0.2,
         color: DuoColors.text,
       ),
     ),
@@ -78,7 +82,7 @@ ThemeData duoTheme() {
       elevation: 0,
       margin: EdgeInsets.zero,
       shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(22),
+        borderRadius: BorderRadius.circular(26),
         side: const BorderSide(color: DuoColors.border, width: 2),
       ),
     ),
@@ -87,15 +91,15 @@ ThemeData duoTheme() {
       fillColor: Colors.white,
       contentPadding: const EdgeInsets.symmetric(horizontal: 14, vertical: 12),
       border: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(14),
+        borderRadius: BorderRadius.circular(18),
         borderSide: const BorderSide(color: DuoColors.border, width: 2),
       ),
       enabledBorder: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(14),
+        borderRadius: BorderRadius.circular(18),
         borderSide: const BorderSide(color: DuoColors.border, width: 2),
       ),
       focusedBorder: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(14),
+        borderRadius: BorderRadius.circular(18),
         borderSide: const BorderSide(color: DuoColors.blue, width: 2),
       ),
       labelStyle: const TextStyle(color: DuoColors.muted, fontWeight: FontWeight.w700),
@@ -105,7 +109,7 @@ ThemeData duoTheme() {
         backgroundColor: DuoColors.green,
         foregroundColor: Colors.white,
         minimumSize: const Size.fromHeight(52),
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
         textStyle: const TextStyle(fontSize: 15, fontWeight: FontWeight.w800, letterSpacing: 0.4),
       ),
     ),
@@ -114,7 +118,7 @@ ThemeData duoTheme() {
         foregroundColor: DuoColors.blue,
         minimumSize: const Size.fromHeight(52),
         side: const BorderSide(color: DuoColors.border, width: 2),
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
         textStyle: const TextStyle(fontSize: 15, fontWeight: FontWeight.w800, letterSpacing: 0.4),
       ),
     ),
@@ -123,7 +127,7 @@ ThemeData duoTheme() {
         selectedBackgroundColor: DuoColors.blueLight,
         selectedForegroundColor: DuoColors.blueDark,
         side: const BorderSide(color: DuoColors.border, width: 2),
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
         textStyle: const TextStyle(fontWeight: FontWeight.w800),
       ),
     ),
@@ -157,12 +161,12 @@ class DuoButton extends StatelessWidget {
       onPressed: onPressed,
       style: FilledButton.styleFrom(
         backgroundColor: colors.$1,
-        disabledBackgroundColor: const Color(0xFFE5E5E5),
+        disabledBackgroundColor: const Color(0xFFF3E6EC),
         foregroundColor: colors.$2,
         disabledForegroundColor: DuoColors.muted,
         minimumSize: Size(expanded ? double.infinity : 0, dense ? 46 : 52),
         padding: EdgeInsets.symmetric(horizontal: dense ? 6 : 20),
-        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
         textStyle: TextStyle(
           fontSize: dense ? 12 : 15,
           fontWeight: FontWeight.w800,
@@ -184,7 +188,7 @@ class DuoButton extends StatelessWidget {
     if (style == DuoButtonStyle.ghost) return child;
     return Container(
       decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(16),
+        borderRadius: BorderRadius.circular(20),
         boxShadow: [
           BoxShadow(
             color: colors.$3,
@@ -193,7 +197,7 @@ class DuoButton extends StatelessWidget {
           ),
         ],
       ),
-      child: ClipRRect(borderRadius: BorderRadius.circular(16), child: child),
+      child: ClipRRect(borderRadius: BorderRadius.circular(20), child: child),
     );
   }
 
@@ -226,10 +230,10 @@ class DuoCard extends StatelessWidget {
       padding: padding,
       decoration: BoxDecoration(
         color: color ?? DuoColors.surface,
-        borderRadius: BorderRadius.circular(22),
+        borderRadius: BorderRadius.circular(26),
         border: Border.all(color: DuoColors.border, width: 2),
         boxShadow: shadows
-            ? const [BoxShadow(color: Color(0xFFF0F0F0), offset: Offset(0, 4), blurRadius: 0)]
+            ? const [BoxShadow(color: Color(0xFFFFDDEA), offset: Offset(0, 4), blurRadius: 0)]
             : null,
       ),
       child: child,

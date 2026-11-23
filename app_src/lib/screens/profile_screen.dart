@@ -21,6 +21,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
   ValueListenable<String>? _email;
   bool _loading = false;
   bool _magicLink = false;
+  bool _editingName = false;
   String _message = '';
 
   @override
@@ -51,10 +52,29 @@ class _ProfileScreenState extends State<ProfileScreen> {
     });
   }
 
-  Future<void> _saveName() => _run(
-        () => _sync.updateDisplayName(_nameController.text),
-        success: 'Nome salvato.',
-      );
+  Future<void> _saveName() async {
+    setState(() {
+      _loading = true;
+      _message = '';
+    });
+    final error = await _sync.updateDisplayName(_nameController.text);
+    if (!mounted) return;
+    setState(() {
+      _loading = false;
+      _message = error ?? '';
+      // Dopo il salvo la card diventa un saluto: il campo ricompare
+      // solo quando il giocatore sceglie di modificarlo.
+      if (error == null) _editingName = false;
+    });
+  }
+
+  void _startEditingName() {
+    _nameController.text = _sync.playerName.value;
+    setState(() {
+      _message = '';
+      _editingName = true;
+    });
+  }
 
   Future<void> _showChangePasswordDialog() async {
     final controller = TextEditingController();
@@ -135,49 +155,70 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 ),
               ),
               const SizedBox(height: 16),
-              DuoCard(
-                color: DuoColors.yellowLight,
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.stretch,
-                  children: [
-                    Row(
+              ValueListenableBuilder<String>(
+                valueListenable: _sync.playerName,
+                builder: (context, name, _) {
+                  final editing = _editingName || name.isEmpty;
+                  return DuoCard(
+                    color: editing ? DuoColors.yellowLight : DuoColors.greenLight,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
                       children: [
-                        CatMascot(
-                          size: 44,
-                          mood: AvatarMood.happy,
-                          scarfColor: DuoColors.yellow,
-                          showShadow: false,
+                        Row(
+                          children: [
+                            CatMascot(
+                              size: 46,
+                              mood: editing ? AvatarMood.thinking : AvatarMood.happy,
+                              scarfColor: editing ? DuoColors.yellow : DuoColors.green,
+                              showShadow: false,
+                            ),
+                            const SizedBox(width: 12),
+                            Expanded(
+                              child: Text(
+                                editing ? 'Come ti chiami?' : 'Ciao, $name!',
+                                style: const TextStyle(fontSize: 19, fontWeight: FontWeight.w800),
+                              ),
+                            ),
+                          ],
                         ),
-                        const SizedBox(width: 12),
-                        const Expanded(
-                          child: Text(
-                            'Come ti chiami?',
-                            style: TextStyle(fontSize: 17, fontWeight: FontWeight.w800),
+                        if (editing) ...[
+                          const SizedBox(height: 10),
+                          TextField(
+                            controller: _nameController,
+                            textInputAction: TextInputAction.done,
+                            maxLength: 24,
+                            onSubmitted: (_) => _saveName(),
+                            decoration: const InputDecoration(
+                              labelText: 'Nome giocatore',
+                              hintText: 'Es. Sofia',
+                              prefixIcon: Icon(Icons.badge_outlined),
+                            ),
                           ),
-                        ),
+                          const SizedBox(height: 8),
+                          DuoButton(
+                            label: 'Salva nome',
+                            icon: Icons.save_outlined,
+                            style: DuoButtonStyle.secondary,
+                            onPressed: _loading ? null : _saveName,
+                          ),
+                        ] else ...[
+                          const SizedBox(height: 8),
+                          const Text(
+                            'Il tuo gatto ti riconoscerà sempre. Puoi cambiare nome quando vuoi.',
+                            style: TextStyle(fontSize: 12, color: DuoColors.muted),
+                          ),
+                          const SizedBox(height: 12),
+                          DuoButton(
+                            label: 'Modifica nome',
+                            icon: Icons.edit_outlined,
+                            style: DuoButtonStyle.secondary,
+                            onPressed: _loading ? null : _startEditingName,
+                          ),
+                        ],
                       ],
                     ),
-                    const SizedBox(height: 10),
-                    TextField(
-                      controller: _nameController,
-                      textInputAction: TextInputAction.done,
-                      maxLength: 24,
-                      onSubmitted: (_) => _saveName(),
-                      decoration: const InputDecoration(
-                        labelText: 'Nome giocatore',
-                        hintText: 'Es. Sofia',
-                        prefixIcon: Icon(Icons.badge_outlined),
-                      ),
-                    ),
-                    const SizedBox(height: 8),
-                    DuoButton(
-                      label: 'Salva nome',
-                      icon: Icons.save_outlined,
-                      style: DuoButtonStyle.secondary,
-                      onPressed: _loading ? null : _saveName,
-                    ),
-                  ],
-                ),
+                  );
+                },
               ),
               const SizedBox(height: 16),
               ValueListenableBuilder<String>(
@@ -287,11 +328,12 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(
-                      _sync.playerName.value.isEmpty
-                          ? 'Accesso effettuato'
-                          : 'Ciao, ${_sync.playerName.value}!',
-                      style: const TextStyle(fontSize: 12, color: DuoColors.muted),
+                    ValueListenableBuilder<String>(
+                      valueListenable: _sync.playerName,
+                      builder: (context, name, _) => Text(
+                        name.isEmpty ? 'Accesso effettuato' : 'Ciao, $name!',
+                        style: const TextStyle(fontSize: 12, color: DuoColors.muted),
+                      ),
                     ),
                     Text(email, style: const TextStyle(fontWeight: FontWeight.w800, fontSize: 14)),
                     const SizedBox(height: 6),

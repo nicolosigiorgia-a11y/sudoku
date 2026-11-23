@@ -39,7 +39,7 @@ Modello primario `gemini-3.6-flash`, fallback `gemini-3.5-flash-lite` e `gemini-
 | Overlay AR lite | Numeri mancanti sovrapposti alla foto |
 | OCR offline | Tesseract4Android con modello `eng` incluso, senza rete né API key |
 | Livelli e lezioni | 8 puzzle a soluzione unica, 3 cuori, errore immediato, cascade domino, XP/stelle; 6 lezioni interattive |
-| UI e account | Tema Duolingo-style, linee nere 3×3, griglia della foto giocabile come i Livelli, login e cloud sync RLS |
+| UI e account | Tema rosa/viola dedicato, linee nere 3×3, griglia della foto giocabile come i Livelli; nome giocatore con saluto dopo il salvataggio e modifica successiva; login e cloud sync RLS |
 
 ## 5. Screenshot dell'app
 

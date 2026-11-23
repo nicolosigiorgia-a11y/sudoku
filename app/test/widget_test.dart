@@ -258,10 +258,22 @@ void main() {
     await tester.enterText(nameField, 'Sofia');
     await tester.tap(find.text('Salva nome'));
     await tester.pumpAndSettle();
-    expect(find.text('Nome salvato.'), findsOneWidget);
+    expect(find.text('Ciao, Sofia!'), findsOneWidget);
+    expect(find.text('Salva nome'), findsNothing);
+    expect(find.text('Modifica nome'), findsOneWidget);
+
+    // Il nome si può cambiare in seguito senza rifare il login.
+    await tester.tap(find.text('Modifica nome'));
+    await tester.pumpAndSettle();
+    expect(find.text('Come ti chiami?'), findsOneWidget);
+    await tester.enterText(nameField, 'Giulia');
+    await tester.tap(find.text('Salva nome'));
+    await tester.pumpAndSettle();
+    expect(find.text('Ciao, Giulia!'), findsOneWidget);
+    expect(find.text('Ciao, Sofia!'), findsNothing);
 
     await tester.tap(find.text('Foto'));
     await tester.pumpAndSettle();
-    expect(find.text('Ciao, Sofia!'), findsOneWidget);
+    expect(find.text('Ciao, Giulia!'), findsOneWidget);
   });
 }

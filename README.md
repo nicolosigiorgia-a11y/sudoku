@@ -159,12 +159,12 @@ flutter build apk --release --dart-define=SUPABASE_URL=https://xxxx.supabase.co 
 - **Solutore ibrido**: backtracking esatto in Dart/TypeScript; Gemini fornisce solo la spiegazione.
 - **Hint progressivi**: link secondario sotto i tre pulsanti: 1) blocco 3×3, 2) cella + vincoli, 3) numero rivelato con spiegazione.
 - **Tutor vocale**: Web Speech equivalente lato app tramite `flutter_tts` (lingua italiana).
-- **Mascotte gatto**: in stile Duolingo, cambia espressione (pensieroso, felice, errore) e appare su tutor, livelli e lezioni. Le 4 icone in basso sono gattini con scene dedicate: fotocamera (Foto), sudoku (Livelli), occhiali e libro "SUDOKU" (Impara), scatola "DATI" (Profilo).
+- **Mascotte gatto e stile proprio**: palette rosa caldo/viola/pesca, card e pulsanti più arrotondati, barra delle attività rosata: nessuna somiglianza con la versione pinguino. Il gatto cambia espressione (pensieroso, felice, errore) e appare su tutor, livelli e lezioni. Le 4 icone in basso sono gattini con scene dedicate: fotocamera (Foto), sudoku (Livelli), occhiali e libro "SUDOKU" (Impara), scatola "DATI" (Profilo).
 - **Interfaccia game-like**: palette verde/blu/giallo, pulsanti con ombra "3D", card arrotondate, griglia a celle arrotondate e percorso livelli con gattini.
 - **Overlay AR lite**: i numeri mancanti vengono disegnati sopra la foto con un layer Canvas.
 - **Modalità Livelli**: 8 puzzle di difficoltà crescente (da 50 a 24 numeri dati), generati con soluzione unica garantita. Stelle (0–3), XP, tempo migliore e sblocchi progressivi vengono salvati sul dispositivo. Funziona interamente offline.
 - **Lezioni guidate**: percorso di 6 passaggi con spiegazioni e 3 esercizi interattivi su riga, colonna e blocco 3×3, pensato per chi non ha mai giocato. Nessun backend richiesto.
-- **Account e cloud sync (Supabase)**: la scheda **Profilo** mostra il nome modificabile e il login con **email + password** oppure **magic link** (deep link `it.sudokatvision.app://login-callback`); progressi e impostazioni portati su qualsiasi telefono, RLS per isolare i dati degli utenti. Nessuna configurazione visibile: URL/chiave sono compilati nell'APK via `--dart-define`. Funziona anche senza account: tutto resta locale. Il nome si può impostare anche offline e compare nella home.
+- **Account e cloud sync (Supabase)**: la scheda **Profilo** mostra il nome modificabile e il login con **email + password** oppure **magic link** (deep link `it.sudokatvision.app://login-callback`); progressi e impostazioni portati su qualsiasi telefono, RLS per isolare i dati degli utenti. Nessuna configurazione visibile: URL/chiave sono compilati nell'APK via `--dart-define`. Funziona anche senza account: tutto resta locale. Il nome si può impostare anche offline e compare nella home. Dopo **Salva nome** la card diventa «Ciao, nome!» con il pulsante **Modifica nome**: il campo di testo non resta visibile.
 
 ## Test
 

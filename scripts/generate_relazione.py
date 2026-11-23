@@ -105,7 +105,7 @@ TEMPLATE = r"""<!doctype html>
       <tr><td>Overlay AR lite</td><td>Canvas che sovrappone i numeri mancanti direttamente alla foto acquisita.</td></tr>
       <tr><td>OCR offline</td><td>Tesseract4Android con modello <code>eng</code> incluso; rilettura delle celle e validazione col solver. Nessuna rete e nessuna chiave richiesta.</td></tr>
       <tr><td>Livelli e lezioni</td><td>8 puzzle generati con soluzione unica garantita, 3 cuori con errore immediato, evidenziazione blu delle occorrenze, animazione domino, XP/stelle e sblocchi; 6 lezioni interattive senza backend.</td></tr>
-      <tr><td>UI e account</td><td>Tema Duolingo-style con linee nere tra i blocchi; la griglia digitalizzata dalla foto è giocabile con lo stesso motore dei Livelli; nome del giocatore modificabile e sincronizzato, mostrato nella home; login Supabase e cloud sync protetto da RLS.</td></tr>
+      <tr><td>UI e account</td><td>Tema rosa/viola dedicato con linee nere tra i blocchi; la griglia digitalizzata dalla foto è giocabile con lo stesso motore dei Livelli; nome del giocatore con saluto «Ciao, nome!» dopo il salvataggio e modifica successiva, sincronizzato e mostrato nella home; login Supabase e cloud sync protetto da RLS.</td></tr>
     </tbody>
   </table>
 
