@@ -18,7 +18,7 @@
     <text x="480" y="194" text-anchor="middle" font-size="13" fill="#33405f">POST /api/ocr</text>
     <text x="480" y="216" text-anchor="middle" font-size="13" fill="#33405f">POST /api/explain</text>
     <text x="480" y="238" text-anchor="middle" font-size="13" fill="#33405f">GET  /api/status</text>
-    <text x="480" y="262" text-anchor="middle" font-size="12" fill="#7a86a8">GEMINI_API_KEY in .env</text>
+    <text x="480" y="262" text-anchor="middle" font-size="12" fill="#7a86a8">GEMINI_API_KEY nei Supabase Secrets</text>
   </g>
 
   <g>

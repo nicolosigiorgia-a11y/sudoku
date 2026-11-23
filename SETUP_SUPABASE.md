@@ -11,6 +11,8 @@ Valori già scelti per questa versione:
 | Deep link login | `it.sudokatvision.app://login-callback` |
 | APK | `AI-Sudoku-Cat-Tutor.apk` |
 | Edge Function | `gemini-proxy` |
+| Project URL in uso | `https://lcuvwstspscuubqpmwxq.supabase.co` |
+| Publishable key in uso | `sb_publishable_6iLKh..._C9` (pubblica, inclusa nell'APK) |
 
 ---
 
@@ -108,7 +110,7 @@ Devi vedere circa:
 
 ```json
 { "configured": true, "model": "gemini-3.6-flash",
-  "fallback": ["gemini-3.5-flash-lite", "gemini-3.8-flash"],
+  "fallbackModels": ["gemini-3.5-flash-lite", "gemini-3.8-flash"],
   "runtime": "supabase-edge-function" }
 ```
 
@@ -123,7 +125,7 @@ cd C:\Users\Archimede\Desktop\sudoku_cat
   -SupabaseKey 'sb_publishable_...'
 ```
 
-Vengono eseguiti i 24 test e poi prodotto:
+Vengono eseguiti i 25 test e poi prodotto:
 
 ```
 C:\Users\Archimede\Desktop\sudoku_cat\AI-Sudoku-Cat-Tutor.apk
@@ -153,7 +155,7 @@ git remote add origin https://github.com/nicolosigiorgia-a11y/sudoku.git
 git push -u origin main
 ```
 
-Poi crea la Release dal browser (**Releases → Draft a new release**, tag `v1.0`) allegando `AI-Sudoku-Cat-Tutor.apk`.
+Release **v1.0** già pubblicata con `AI-Sudoku-Cat-Tutor.apk`: https://github.com/nicolosigiorgia-a11y/sudoku/releases/latest
 
 Prima di fare `git add .`, controlla che non compaiano: `.env`, `local.properties`, `supabase/.temp/`, `.apk`, `RELAZIONE.html`. Sono tutti già nel `.gitignore`.
 
@@ -170,14 +172,14 @@ Il file sorgente `logo.jpg` resta nella cartella. Anche gli screenshot sono stat
 
 ## Checklist rapida
 
-- [ ] Progetto Supabase creato
-- [ ] `schema.sql` eseguito
+- [x] Progetto Supabase creato
+- [x] `schema.sql` eseguito
 - [ ] Email provider abilitato
 - [ ] Redirect `it.sudokatvision.app://login-callback` aggiunto
-- [ ] URL + publishable key annotati
-- [ ] `GEMINI_API_KEY` nei Secrets
-- [ ] `gemini-proxy` deployato e `/api/status` con `configured:true`
-- [ ] APK ricompilata con i nuovi valori
+- [x] URL + publishable key annotati
+- [x] `GEMINI_API_KEY` nei Secrets
+- [x] `gemini-proxy` deployato e `/api/status` con `configured:true`
+- [x] APK ricompilata con i nuovi valori
 - [ ] Test online/offline e login effettuati
-- [ ] Repo GitHub + Release create
+- [x] Repo GitHub + Release create
 - [x] Logo e screenshot sostituiti

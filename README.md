@@ -126,7 +126,7 @@ it.sudokatvision.app://login-callback
 ```
 
 5. Vai su **Project Settings → API** e copia **Project URL** e **anon / publishable key**.
-6. Questa build **non mostra alcuna configurazione nell'app**: la scheda **Profilo** contiene solo il login. URL e chiave vengono iniettati a build time (vedi sotto), quindi passami i due valori e ricostruisco l'APK. Poi accedi con password o magic link.
+6. Questa build **non mostra alcuna configurazione nell'app**: la scheda **Profilo** contiene solo il login. URL e chiave vengono iniettati a build time (vedi sotto), e lo script `scripts/build-apk.ps1` li inietta nell'APK con `--dart-define`. Poi accedi con password o magic link.
 
 > La chiave anon/publishable è pubblica by design: può stare nell'APK. La sicurezza è data dalle policy RLS: ogni giocatore legge e scrive solo la propria riga. Non inserire mai la `service_role` key nell'app.
 
@@ -135,7 +135,7 @@ it.sudokatvision.app://login-callback
 Per preconfigurare i valori a compile time:
 
 ```powershell
-flutter build apk --release --dart-define=SUPABASE_URL=https://xxxx.supabase.co --dart-define=SUPABASE_KEY=eyJ...
+flutter build apk --release --dart-define=SUPABASE_URL=https://xxxx.supabase.co --dart-define=SUPABASE_KEY=sb_publishable_...
 ```
 
 ## Funzionalità
@@ -179,7 +179,7 @@ flutter test
 
 ## Note sulla valutazione
 
-- `GEMINI_API_KEY` va solo in `.env`; `.gitignore` esclude il file.
+- `GEMINI_API_KEY` va solo nei **Supabase Secrets**: non sta in `.env`, nel codice sorgente o su GitHub. `.gitignore` esclude comunque `.env`.
 - Modello predefinito: `gemini-3.6-flash`, con fallback automatico a `gemini-3.5-flash-lite` e `gemini-3.8-flash` se uno è sovraccarico o disattivato (configurabile con `GEMINI_MODEL`).
 - La relazione tecnica sintetica in 2 pagine è `RELAZIONE.pdf` (versione Markdown: `RELAZIONE.md`); si rigenera con `python scripts/generate_relazione.py`. Gli screenshot reali sono in `screenshots/` (`ai_solution.jpeg`, `livelli.jpeg`, `impara.jpeg`, `profilo.jpeg`).
 - **Icona**: generata da `logo.jpg` (nelle mipmap Android e in `app_src/assets/app_icon.jpg`). **Screenshot**: sostituiti con quelli reali della versione Gatto e incorporati in `RELAZIONE.pdf`.
