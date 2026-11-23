@@ -1,0 +1,32 @@
+# Secrets (mai committare chiavi reali)
+.env
+.env.*
+!.env.example
+
+# Node backend
+node_modules/
+*.log
+
+# Flutter / Dart: file generati in locale
+app/.dart_tool/
+app/build/
+app/.flutter-plugins
+app/.flutter-plugins-dependencies
+app/android/.gradle/
+app/android/local.properties
+
+# Supabase CLI: metadati del progetto collegato in locale
+supabase/.temp/
+
+# APK generata: pubblicarla come GitHub Release, non nel repository
+AI-Sudoku-Cat-Tutor.apk
+
+# HTML generato dalla relazione (contiene gli screenshot in base64)
+RELAZIONE.html
+
+# Estrazione locale della traccia
+pdf_text.txt
+
+# OS
+.DS_Store
+Thumbs.db

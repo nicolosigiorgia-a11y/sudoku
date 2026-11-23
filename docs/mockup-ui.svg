@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="760" height="620" viewBox="0 0 760 620" font-family="Segoe UI, Arial, sans-serif">
+  <rect width="760" height="620" fill="#eef1f8"/>
+  <text x="30" y="42" font-size="22" font-weight="700" fill="#1b2440">Mockup interfaccia APK (schema)</text>
+
+  <rect x="190" y="70" width="380" height="520" rx="32" fill="#ffffff" stroke="#26345c" stroke-width="4"/>
+  <rect x="205" y="88" width="350" height="52" rx="12" fill="#4457a8"/>
+  <text x="380" y="119" text-anchor="middle" font-size="17" font-weight="700" fill="#ffffff">AI Sudoku Vision &amp; Tutor</text>
+
+  <circle cx="238" cy="180" r="26" fill="#fff0c2" stroke="#243056" stroke-width="2"/>
+  <circle cx="230" cy="174" r="3" fill="#243056"/>
+  <circle cx="246" cy="174" r="3" fill="#243056"/>
+  <path d="M228 190 Q238 198 248 190" stroke="#243056" stroke-width="2" fill="none"/>
+  <text x="280" y="174" font-size="13" font-weight="700" fill="#1b2440">Ci penso…</text>
+  <text x="280" y="193" font-size="11" fill="#6b7694">Gemini sta spiegando la mossa</text>
+
+  <rect x="210" y="220" width="340" height="270" fill="#ffffff" stroke="#30405f" stroke-width="2"/>
+  <g stroke="#30405f" stroke-width="1">
+    <path d="M300 220 V490 M390 220 V490 M480 220 V490" stroke-width="2.5"/>
+    <path d="M210 310 H550 M210 400 H550" stroke-width="2.5"/>
+    <path d="M255 220 V490 M345 220 V490 M435 220 V490 M525 220 V490"/>
+    <path d="M210 265 H550 M210 355 H550 M210 445 H550"/>
+  </g>
+  <g font-size="16" fill="#1b2440" text-anchor="middle">
+    <text x="232" y="252">5</text><text x="322" y="252">7</text>
+    <text x="412" y="252">3</text><text x="502" y="252">8</text>
+    <text x="232" y="342">6</text><text x="322" y="342">1</text><text x="412" y="342">9</text>
+    <text x="232" y="432">4</text><text x="322" y="432">2</text><text x="502" y="432">6</text>
+    <text x="232" y="480">9</text><text x="412" y="480">7</text>
+  </g>
+  <rect x="390" y="310" width="30" height="30" fill="#ffd86b" opacity="0.9"/>
+  <text x="405" y="332" font-size="17" font-weight="800" fill="#1b2440" text-anchor="middle">4</text>
+
+  <rect x="210" y="505" width="105" height="34" rx="17" fill="#4457a8"/>
+  <text x="262" y="527" text-anchor="middle" font-size="11" fill="#fff">Suggerisci</text>
+  <rect x="325" y="505" width="90" height="34" rx="17" fill="#ffffff" stroke="#4457a8"/>
+  <text x="370" y="527" text-anchor="middle" font-size="11" fill="#4457a8">Hint 2/3</text>
+  <rect x="425" y="505" width="125" height="34" rx="17" fill="#12a594"/>
+  <text x="487" y="527" text-anchor="middle" font-size="11" fill="#fff">Risolvi</text>
+
+  <text x="30" y="570" font-size="12" fill="#6b7694">Legenda: blu = OCR · giallo = hint · verde = solutore AI · rosso = conflitto.</text>
+</svg>
