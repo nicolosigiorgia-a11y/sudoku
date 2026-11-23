@@ -16,6 +16,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
   final _sync = CloudSync.instance;
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
+  final _nameController = TextEditingController();
 
   ValueListenable<String>? _email;
   bool _loading = false;
@@ -26,12 +27,14 @@ class _ProfileScreenState extends State<ProfileScreen> {
   void initState() {
     super.initState();
     _email = _sync.userEmail;
+    _nameController.text = _sync.playerName.value;
   }
 
   @override
   void dispose() {
     _emailController.dispose();
     _passwordController.dispose();
+    _nameController.dispose();
     super.dispose();
   }
 
@@ -47,6 +50,11 @@ class _ProfileScreenState extends State<ProfileScreen> {
       _message = result ?? success ?? 'Operazione completata.';
     });
   }
+
+  Future<void> _saveName() => _run(
+        () => _sync.updateDisplayName(_nameController.text),
+        success: 'Nome salvato.',
+      );
 
   Future<void> _showChangePasswordDialog() async {
     final controller = TextEditingController();
@@ -122,6 +130,51 @@ class _ProfileScreenState extends State<ProfileScreen> {
                       'Accedi per portare stelle, tempi e impostazioni su un altro telefono.',
                       textAlign: TextAlign.center,
                       style: TextStyle(fontSize: 13, color: DuoColors.muted),
+                    ),
+                  ],
+                ),
+              ),
+              const SizedBox(height: 16),
+              DuoCard(
+                color: DuoColors.yellowLight,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: [
+                    Row(
+                      children: [
+                        CatMascot(
+                          size: 44,
+                          mood: AvatarMood.happy,
+                          scarfColor: DuoColors.yellow,
+                          showShadow: false,
+                        ),
+                        const SizedBox(width: 12),
+                        const Expanded(
+                          child: Text(
+                            'Come ti chiami?',
+                            style: TextStyle(fontSize: 17, fontWeight: FontWeight.w800),
+                          ),
+                        ),
+                      ],
+                    ),
+                    const SizedBox(height: 10),
+                    TextField(
+                      controller: _nameController,
+                      textInputAction: TextInputAction.done,
+                      maxLength: 24,
+                      onSubmitted: (_) => _saveName(),
+                      decoration: const InputDecoration(
+                        labelText: 'Nome giocatore',
+                        hintText: 'Es. Sofia',
+                        prefixIcon: Icon(Icons.badge_outlined),
+                      ),
+                    ),
+                    const SizedBox(height: 8),
+                    DuoButton(
+                      label: 'Salva nome',
+                      icon: Icons.save_outlined,
+                      style: DuoButtonStyle.secondary,
+                      onPressed: _loading ? null : _saveName,
                     ),
                   ],
                 ),
@@ -234,7 +287,12 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const Text('Accesso effettuato', style: TextStyle(fontSize: 12, color: DuoColors.muted)),
+                    Text(
+                      _sync.playerName.value.isEmpty
+                          ? 'Accesso effettuato'
+                          : 'Ciao, ${_sync.playerName.value}!',
+                      style: const TextStyle(fontSize: 12, color: DuoColors.muted),
+                    ),
                     Text(email, style: const TextStyle(fontWeight: FontWeight.w800, fontSize: 14)),
                     const SizedBox(height: 6),
                     const DuoBadge(

@@ -242,4 +242,26 @@ void main() {
     expect(find.byTooltip('Guida configurazione'), findsNothing);
     expect(find.textContaining('configurare Gemini'), findsNothing);
   });
+
+  testWidgets('Profilo: il nome del giocatore si salva e appare nella home', (WidgetTester tester) async {
+    SharedPreferences.setMockInitialValues({});
+    await tester.pumpWidget(const SudokuCatApp());
+    await tester.pumpAndSettle();
+
+    await tester.tap(find.text('Profilo'));
+    await tester.pumpAndSettle();
+    expect(find.text('Come ti chiami?'), findsOneWidget);
+
+    final nameField = find.byWidgetPredicate(
+      (widget) => widget is TextField && widget.decoration?.labelText == 'Nome giocatore',
+    );
+    await tester.enterText(nameField, 'Sofia');
+    await tester.tap(find.text('Salva nome'));
+    await tester.pumpAndSettle();
+    expect(find.text('Nome salvato.'), findsOneWidget);
+
+    await tester.tap(find.text('Foto'));
+    await tester.pumpAndSettle();
+    expect(find.text('Ciao, Sofia!'), findsOneWidget);
+  });
 }

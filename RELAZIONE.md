@@ -51,7 +51,7 @@ Screenshot reali da dispositivo Android (720×1444 / 720×1570 px).
 
 ## 6. Test e risultati
 
-- `flutter test`: **24 test superati** (solver, OCR, JSON, sync, navigazione, gameplay, griglia digitalizzata).
+- `flutter test`: **25 test superati** (solver, OCR, JSON, sync, navigazione, gameplay, griglia digitalizzata).
 - `npm run test:server`: solver, conflitti, conteggio soluzioni e conversioni.
 - `flutter build apk --release`: APK ~75,9 MB, Android 8+ (minSdk 24).
 

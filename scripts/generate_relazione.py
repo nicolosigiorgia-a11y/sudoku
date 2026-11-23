@@ -105,7 +105,7 @@ TEMPLATE = r"""<!doctype html>
       <tr><td>Overlay AR lite</td><td>Canvas che sovrappone i numeri mancanti direttamente alla foto acquisita.</td></tr>
       <tr><td>OCR offline</td><td>Tesseract4Android con modello <code>eng</code> incluso; rilettura delle celle e validazione col solver. Nessuna rete e nessuna chiave richiesta.</td></tr>
       <tr><td>Livelli e lezioni</td><td>8 puzzle generati con soluzione unica garantita, 3 cuori con errore immediato, evidenziazione blu delle occorrenze, animazione domino, XP/stelle e sblocchi; 6 lezioni interattive senza backend.</td></tr>
-      <tr><td>UI e account</td><td>Tema Duolingo-style con linee nere tra i blocchi; la griglia digitalizzata dalla foto è giocabile con lo stesso motore dei Livelli; login Supabase e cloud sync protetto da RLS.</td></tr>
+      <tr><td>UI e account</td><td>Tema Duolingo-style con linee nere tra i blocchi; la griglia digitalizzata dalla foto è giocabile con lo stesso motore dei Livelli; nome del giocatore modificabile e sincronizzato, mostrato nella home; login Supabase e cloud sync protetto da RLS.</td></tr>
     </tbody>
   </table>
 
@@ -120,7 +120,7 @@ TEMPLATE = r"""<!doctype html>
 
   <h2>6. Test e risultati</h2>
   <ul>
-    <li><code>flutter test</code>: 24 test superati su solver, OCR, parsing JSON, sync cloud, navigazione, gameplay (cuori, suggerimenti, animazioni) e griglia digitalizzata.</li>
+    <li><code>flutter test</code>: 25 test superati su solver, OCR, parsing JSON, sync cloud, navigazione, gameplay (cuori, suggerimenti, animazioni) e griglia digitalizzata.</li>
     <li><code>npm run test:server</code>: solver, conflitti, conteggio soluzioni e conversioni del modulo TypeScript.</li>
     <li><code>flutter build apk --release</code>: <code>AI-Sudoku-Cat-Tutor.apk</code> (~75,9 MB, Android 8+, minSdk 24), con Tesseract e librerie native incluse.</li>
   </ul>

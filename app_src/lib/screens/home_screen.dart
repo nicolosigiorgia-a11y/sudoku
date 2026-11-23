@@ -957,7 +957,20 @@ class _HomeScreenState extends State<HomeScreen> {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('AI Sudoku Vision & Tutor — Cat Edition'),
+        title: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            const Text('AI Sudoku Vision & Tutor — Cat Edition'),
+            ValueListenableBuilder<String>(
+              valueListenable: CloudSync.instance.playerName,
+              builder: (context, name, _) => Text(
+                name.isEmpty ? 'Allenati un passo alla volta' : 'Ciao, $name!',
+                style: const TextStyle(fontSize: 11, fontWeight: FontWeight.w600, color: DuoColors.muted),
+              ),
+            ),
+          ],
+        ),
         actions: [
           _badge(_apiConfigured ? 'ONLINE' : 'OFFLINE', _apiConfigured ? DuoColors.green : DuoColors.blue),
           const SizedBox(width: 6),

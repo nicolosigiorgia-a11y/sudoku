@@ -31,6 +31,24 @@ Valori già scelti per questa versione:
 
 Questo crea la tabella `player_progress` con **Row Level Security**: ogni utente legge/scrive solo la propria riga.
 
+### Trovare un giocatore
+
+L'app ora fa scegliere un **nome** all'utente. Per vedere nome, email e progressi insieme, esegui in SQL Editor:
+
+```sql
+select
+  p.settings->>'display_name' as nome,
+  u.email,
+  p.user_id,
+  u.last_sign_in_at as ultimo_accesso,
+  p.progress
+from public.player_progress p
+join auth.users u on u.id = p.user_id
+order by p.updated_at desc;
+```
+
+Puoi anche usare la ricerca in **Authentication → Users** per email o UID.
+
 ## 3. Configurare l'Auth
 
 1. Vai su **Authentication → Providers → Email** e abilitalo.

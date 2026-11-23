@@ -8,6 +8,7 @@ class AppPrefs {
   static const _lessonDoneKey = 'lessons_completed';
   static const _supabaseUrlKey = 'supabase_url';
   static const _supabaseKeyKey = 'supabase_key';
+  static const _displayNameKey = 'player_display_name';
 
   static const String envBaseUrl = String.fromEnvironment('API_BASE_URL', defaultValue: '');
   static const String defaultSupabaseUrl = String.fromEnvironment('SUPABASE_URL', defaultValue: '');
@@ -50,6 +51,12 @@ class AppPrefs {
 
   bool get voiceEnabled => _prefs.getBool(_voiceKey) ?? false;
   Future<bool> setVoiceEnabled(bool value) => _prefs.setBool(_voiceKey, value);
+
+  /// Nome scelto dal giocatore: identifica l'utente anche senza account.
+  String get displayName => (_prefs.getString(_displayNameKey) ?? '').trim();
+
+  Future<void> setDisplayName(String value) =>
+      _prefs.setString(_displayNameKey, value.trim().replaceAll(RegExp(r'\s+'), ' '));
 
   // ---- Supabase configuration ---------------------------------------------
 
@@ -116,6 +123,7 @@ class AppPrefs {
   Map<String, dynamic> settingsSnapshot() => {
         'api_base_url': baseUrl,
         'voice_enabled': voiceEnabled,
+        'display_name': displayName,
       };
 
   /// Merges remote data into local storage: best star count and fastest time
@@ -153,6 +161,8 @@ class AppPrefs {
       if (url != null && url.isNotEmpty) await setBaseUrl(url);
       final voice = remoteSettings['voice_enabled'];
       if (voice is bool) await setVoiceEnabled(voice);
+      final name = remoteSettings['display_name']?.toString().trim();
+      if (name != null && name.isNotEmpty) await setDisplayName(name);
     }
   }
 

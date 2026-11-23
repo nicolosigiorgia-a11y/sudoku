@@ -12,15 +12,18 @@ void main() {
     await prefs.setLessonsCompleted();
     await prefs.setBaseUrl('http://192.168.1.5:3000');
     await prefs.setVoiceEnabled(true);
+    await prefs.setDisplayName('Sofia');
 
     final progress = prefs.progressSnapshot(8);
     expect((progress['stars'] as Map)['1'], 2);
     expect((progress['stars'] as Map)['2'], 3);
     expect((progress['best_times'] as Map)['1'], 120);
     expect(progress['lessons_completed'], true);
+    expect(prefs.displayName, 'Sofia');
     expect(prefs.settingsSnapshot(), {
       'api_base_url': 'http://192.168.1.5:3000',
       'voice_enabled': true,
+      'display_name': 'Sofia',
     });
   });
 

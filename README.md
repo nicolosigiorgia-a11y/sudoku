@@ -130,7 +130,7 @@ it.sudokatvision.app://login-callback
 
 > La chiave anon/publishable è pubblica by design: può stare nell'APK. La sicurezza è data dalle policy RLS: ogni giocatore legge e scrive solo la propria riga. Non inserire mai la `service_role` key nell'app.
 
-**Cosa si sincronizza**: stelle, tempi migliori, lezioni completate, URL della funzione Gemini e voce. I progressi vengono uniti prendendo il punteggio migliore e il tempo più veloce; le impostazioni remote vengono applicate quando accedi su un nuovo telefono. Dopo ogni livello completato il sync parte automaticamente; puoi forzarlo con **Sincronizza ora**.
+**Cosa si sincronizza**: stelle, tempi migliori, lezioni completate, nome del giocatore, URL della funzione Gemini e voce. I progressi vengono uniti prendendo il punteggio migliore e il tempo più veloce; le impostazioni remote vengono applicate quando accedi su un nuovo telefono. Dopo ogni livello completato il sync parte automaticamente; puoi forzarlo con **Sincronizza ora**.
 
 Per preconfigurare i valori a compile time:
 
@@ -164,7 +164,7 @@ flutter build apk --release --dart-define=SUPABASE_URL=https://xxxx.supabase.co 
 - **Overlay AR lite**: i numeri mancanti vengono disegnati sopra la foto con un layer Canvas.
 - **Modalità Livelli**: 8 puzzle di difficoltà crescente (da 50 a 24 numeri dati), generati con soluzione unica garantita. Stelle (0–3), XP, tempo migliore e sblocchi progressivi vengono salvati sul dispositivo. Funziona interamente offline.
 - **Lezioni guidate**: percorso di 6 passaggi con spiegazioni e 3 esercizi interattivi su riga, colonna e blocco 3×3, pensato per chi non ha mai giocato. Nessun backend richiesto.
-- **Account e cloud sync (Supabase)**: la scheda **Profilo** mostra solo il login con **email + password** oppure **magic link** (deep link `it.sudokatvision.app://login-callback`); progressi e impostazioni portati su qualsiasi telefono, RLS per isolare i dati degli utenti. Nessuna configurazione visibile: URL/chiave sono compilati nell'APK via `--dart-define`. Funziona anche senza account: tutto resta locale.
+- **Account e cloud sync (Supabase)**: la scheda **Profilo** mostra il nome modificabile e il login con **email + password** oppure **magic link** (deep link `it.sudokatvision.app://login-callback`); progressi e impostazioni portati su qualsiasi telefono, RLS per isolare i dati degli utenti. Nessuna configurazione visibile: URL/chiave sono compilati nell'APK via `--dart-define`. Funziona anche senza account: tutto resta locale. Il nome si può impostare anche offline e compare nella home.
 
 ## Test
 

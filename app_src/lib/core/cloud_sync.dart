@@ -21,6 +21,9 @@ class CloudSync {
 
   final ValueNotifier<String> userEmail = ValueNotifier<String>('');
 
+  /// Nome modificabile dal giocatore; disponibile anche senza login.
+  final ValueNotifier<String> playerName = ValueNotifier<String>('');
+
   /// Bumped whenever local progress is written or a cloud snapshot is applied.
   /// Screens that cache progress (e.g. Livelli) listen to this to refresh.
   final ValueNotifier<int> progressRevision = ValueNotifier<int>(0);
@@ -47,6 +50,7 @@ class CloudSync {
   bool get isConfigured => _prefs?.hasSupabaseConfig ?? false;
 
   void _publishUser() {
+    playerName.value = _prefs?.displayName ?? '';
     if (!_initialized) {
       userEmail.value = '';
       return;
@@ -164,6 +168,19 @@ class CloudSync {
     }
   }
 
+  /// Salva il nome in locale e lo carica subito sul cloud se l'utente è online.
+  Future<String?> updateDisplayName(String value) async {
+    final name = value.trim().replaceAll(RegExp(r'\s+'), ' ');
+    if (name.isEmpty) return 'Inserisci un nome.';
+    if (name.length > 24) return 'Il nome deve essere al massimo 24 caratteri.';
+    final prefs = _prefs ?? await AppPrefs.load();
+    _prefs = prefs;
+    await prefs.setDisplayName(name);
+    playerName.value = name;
+    pushAfterChange();
+    return null;
+  }
+
   Future<String?> signOut() async {
     final ready = await _ensureReady();
     if (ready != null) return ready;
@@ -203,9 +220,10 @@ class CloudSync {
           settings: remote['settings'],
           preferRemoteSettings: preferRemoteSettings,
         );
-        // Aggiorna subito le schermate che mostrano il progresso: non devono
+        // Aggiorna subito le schermate che mostrano progresso e nome: non devono
         // attendere la fine dell'upload né un riavvio dell'app.
         progressRevision.value++;
+        _publishUser();
         await _push(user.id);
         message = 'Sincronizzato: progressi e impostazioni aggiornati.';
       }
