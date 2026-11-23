@@ -49,7 +49,8 @@ TEMPLATE = r"""<!doctype html>
   .flow .arrow { align-self: center; color: #14663f; font-weight: bold; }
   .screens { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6pt; margin-top: 3pt; }
   .screens figure { margin: 0; }
-  .screens img { width: 100%; height: auto; display: block; border: 1px solid #cbd6ce;
+  .screens img { max-width: 100%; max-height: 86mm; width: auto; height: auto;
+                 display: block; margin: 0 auto; border: 1px solid #cbd6ce;
                  border-radius: 4pt; }
   .screens figcaption { font-size: 7.2pt; color: #58636c; text-align: center; margin-top: 2pt; }
   .foot { margin-top: 7pt; padding-top: 3pt; border-top: 1px solid #d7e8de;
@@ -111,12 +112,12 @@ TEMPLATE = r"""<!doctype html>
 
   <h2>5. Screenshot dell'app</h2>
   <div class="screens">
-    <figure><img src="__AI__" alt="Griglia e soluzione"><figcaption>Griglia / soluzione AI</figcaption></figure>
+    <figure><img src="__AI__" alt="Foto e griglia digitalizzata"><figcaption>Foto / griglia digitalizzata</figcaption></figure>
     <figure><img src="__LIVELLI__" alt="Percorso livelli"><figcaption>Percorso dei livelli</figcaption></figure>
     <figure><img src="__IMPARA__" alt="Lezioni guidate"><figcaption>Lezioni guidate</figcaption></figure>
     <figure><img src="__PROFILO__" alt="Profilo e login"><figcaption>Profilo e login</figcaption></figure>
   </div>
-  <p style="margin-top:3pt;font-size:7.2pt;color:#58636c">Screenshot reali da dispositivo Android (720×1444 / 720×1570 px).</p>
+  <p style="margin-top:3pt;font-size:7.2pt;color:#58636c">Screenshot reali della versione Gatto da dispositivo Android (360×1429, 719×1474, 719×1473, 720×1468 px).</p>
 
   <h2>6. Test e risultati</h2>
   <ul>

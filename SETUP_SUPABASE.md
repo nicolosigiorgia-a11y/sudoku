@@ -164,7 +164,7 @@ Il logo `logo.jpg` (1024×1024) è stato usato per generare:
 - `app_src/assets/app_icon.jpg` e `app/assets/app_icon.jpg`
 - `app/android/app/src/main/res/mipmap-*/ic_launcher.png` (48/72/96/144/192 px)
 
-Il file sorgente `logo.jpg` resta nella cartella. Anche gli screenshot andrebbero rifatti con la mascotte gatto: per ora `screenshots/` contiene quelli della versione pinguino, usati come segnaposto nella relazione.
+Il file sorgente `logo.jpg` resta nella cartella. Anche gli screenshot sono stati sostituiti con quelli reali della versione Gatto (`screenshots/ai_solution.jpeg`, `livelli.jpeg`, `impara.jpeg`, `profilo.jpeg`) e sono incorporati in `RELAZIONE.pdf`.
 
 ---
 
@@ -180,4 +180,4 @@ Il file sorgente `logo.jpg` resta nella cartella. Anche gli screenshot andrebber
 - [ ] APK ricompilata con i nuovi valori
 - [ ] Test online/offline e login effettuati
 - [ ] Repo GitHub + Release create
-- [ ] Logo e screenshot sostituiti
+- [x] Logo e screenshot sostituiti

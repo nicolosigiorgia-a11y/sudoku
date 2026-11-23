@@ -47,7 +47,7 @@ Modello primario `gemini-3.6-flash`, fallback `gemini-3.5-flash-lite` e `gemini-
 |---|---|---|---|
 | <img src="screenshots/ai_solution.jpeg" width="130" alt="Griglia e soluzione"><br>Griglia / soluzione AI | <img src="screenshots/livelli.jpeg" width="130" alt="Livelli"><br>Percorso livelli | <img src="screenshots/impara.jpeg" width="130" alt="Lezioni"><br>Lezioni guidate | <img src="screenshots/profilo.jpeg" width="130" alt="Profilo"><br>Profilo e login |
 
-Screenshot reali da dispositivo Android (720×1444 / 720×1570 px).
+Screenshot reali della versione Gatto da dispositivo Android (360×1429, 719×1474, 719×1473, 720×1468 px).
 
 ## 6. Test e risultati
 
